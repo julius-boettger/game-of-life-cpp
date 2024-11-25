@@ -11,7 +11,7 @@ executable(
         'src/main.cpp'
     ],
 
-    dependencies: [ dependency('ncurses') ],
+    dependencies: [ dependency('ftxui') ],
     install: true, # necessary for nix build
 
     # compiler arguments (assuming gcc)
@@ -21,5 +21,7 @@ executable(
         '-pedantic-errors',
         # more warnings
         '-Wall', '-Weffc++', '-Wextra', '-Wconversion', '-Wsign-conversion', '-Wshadow',
+        # ignore some warnings
+        '-Wno-cpp', # "[...] requires compiling with optimization"
     ],
 )

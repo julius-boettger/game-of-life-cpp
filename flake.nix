@@ -19,7 +19,7 @@
         src = ./.;
 
         nativeBuildInputs = with pkgs; [ meson ninja pkg-config ];
-              buildInputs = with pkgs; [ ncurses ];
+              buildInputs = with pkgs; [ ftxui ];
 
         meta = with pkgs.lib; {
           homepage = "https://github.com/julius-boettger/game-of-life-cpp";

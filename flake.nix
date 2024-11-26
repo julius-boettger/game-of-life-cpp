@@ -24,7 +24,7 @@
         meta = with pkgs.lib; {
           homepage = "https://github.com/julius-boettger/game-of-life-cpp";
           license = licenses.gpl3;
-          platforms = platforms.unix;
+          platforms = platforms.all;
         };
       };
     });

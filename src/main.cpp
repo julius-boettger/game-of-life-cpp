@@ -8,6 +8,11 @@ int main() {
     auto renderer = ui::Renderer([] {
         return ui::center(ui::text("Test"));
     });
+
+    screen.SetCursor(ui::Screen::Cursor {
+        .shape = ui::Screen::Cursor::Shape::Hidden
+    });
+
     screen.Loop(renderer);
  
     return 0;

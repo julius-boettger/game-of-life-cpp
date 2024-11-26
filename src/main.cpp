@@ -9,7 +9,8 @@ int main() {
     auto screen { ui::ScreenInteractive::Fullscreen() };
 
     auto renderer { ui::Renderer([&] {
-        return ui::center(ui::text(std::format("{} x {}", screen.dimx(), screen.dimy())));
+        auto dims { ui::Dimension::Full() };
+        return ui::center(ui::text(std::format("{} x {}", dims.dimx, dims.dimy)));
     }) };
 
     screen.SetCursor(ui::Screen::Cursor {

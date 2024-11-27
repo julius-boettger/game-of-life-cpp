@@ -24,12 +24,12 @@ Grid::Grid(const ui::Dimensions& dimensions, std::string emptyCell_)
     });
 }
 
-const std::string& Grid::get(int x, int y) const {
-    return grid[x][y];
+const std::string& Grid::get(int row, int col) const {
+    return grid[row][col];
 }
 
-void Grid::set(int x, int y, const std::string& string) {
-    grid[x][y] = string;
+void Grid::set(int row, int col, const std::string& string) {
+    grid[row][col] = string;
 }
 
 const ui::Component& Grid::getComponent() const {

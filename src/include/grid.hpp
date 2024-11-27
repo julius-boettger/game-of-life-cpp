@@ -18,8 +18,8 @@ public:
 
     Grid(const ui::Dimensions& dimensions, std::string emptyCell_);
 
-    const std::string& get(int x, int y) const;
-    void set(int x, int y, const std::string& string);
+    const std::string& get(int row, int col) const;
+    void set(int row, int col, const std::string& string);
 
     const ui::Component& getComponent() const;
 };

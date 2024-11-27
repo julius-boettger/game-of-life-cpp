@@ -20,9 +20,11 @@ executable(
         '-std=c++23',
         # throw errors when using compiler extensions
         '-pedantic-errors',
-        # more warnings
+        # treat warnings as errors
+        '-Werror',
+        # enable more warnings
         '-Wall', '-Weffc++', '-Wextra', '-Wconversion', '-Wsign-conversion', '-Wshadow',
-        # ignore some warnings
+        # disable some warnings
         '-Wno-cpp', # "[...] requires compiling with optimization"
     ],
 )

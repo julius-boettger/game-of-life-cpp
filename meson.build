@@ -8,7 +8,8 @@ executable(
 
     include_directories: 'src/include',
     sources: [
-        'src/main.cpp'
+        'src/main.cpp',
+        'src/grid.cpp',
     ],
 
     dependencies: [ dependency('ftxui') ],

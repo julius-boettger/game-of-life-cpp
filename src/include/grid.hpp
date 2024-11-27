@@ -6,8 +6,8 @@
 // 2d grid of cells
 class Grid {
 
-    int rows {};
-    int cols {};
+    unsigned int rows {};
+    unsigned int cols {};
     std::string emptyCell {};
     std::vector<std::vector<std::string>> grid {};
 
@@ -18,8 +18,8 @@ public:
 
     Grid(const ui::Dimensions& dimensions, std::string emptyCell_);
 
-    const std::string& get(int row, int col) const;
-    void set(int row, int col, const std::string& string);
+    const std::string& get(unsigned int row, unsigned int col) const;
+    void set(unsigned int row, unsigned int col, const std::string& string);
 
     const ui::Component& getComponent() const;
 };

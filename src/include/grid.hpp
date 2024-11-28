@@ -21,6 +21,7 @@ public:
     const std::string& get(unsigned int row, unsigned int col) const;
     void set(unsigned int row, unsigned int col, const std::string& string);
 
+    void update();
     const ui::Component& getComponent() const;
 };
 

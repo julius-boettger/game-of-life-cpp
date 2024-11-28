@@ -35,3 +35,21 @@ void Grid::set(unsigned int row, unsigned int col, const std::string& string) {
 const ui::Component& Grid::getComponent() const {
     return this->component;
 }
+
+void Grid::update() {
+    static unsigned int row { 0 };
+    static unsigned int col { 0 };
+
+    if (col >= this->cols - 1) {
+        return;
+    }
+
+    this->set(row, col, "█");
+
+    if (row >= this->rows - 1) {
+        row = 0;
+        col++;
+    } else {
+        row++;
+    }
+}

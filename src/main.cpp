@@ -5,8 +5,8 @@
 
 #include <ftxui/component/screen_interactive.hpp>
 
-bool running { true };
 std::thread update_thread;
+std::atomic<bool> running { true };
 auto screen { ui::ScreenInteractive::Fullscreen() };
 
 void exit() {

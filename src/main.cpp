@@ -26,7 +26,10 @@ int main() {
     }) };
 
     auto event_handler = ui::CatchEvent(grid.getComponent(), [&](ui::Event event) {
-        if (event == ui::Event::Character("q")) {
+        constexpr char escape_key { 27 };
+        if (event == ui::Event::Character('q') ||
+            event == ui::Event::Character(escape_key))
+        {
             screen.ExitLoopClosure()();
             return true; // event handled
         }

@@ -21,7 +21,11 @@ public:
     const std::string& get(unsigned int row, unsigned int col) const;
     void set(unsigned int row, unsigned int col, const std::string& string);
 
+    unsigned int getRows() const;
+    unsigned int getCols() const;
+
     void update();
+    void resize(const ui::Dimensions& dimensions);
     const ui::Component& getComponent() const;
 };
 

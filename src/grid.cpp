@@ -12,6 +12,13 @@ Grid::Grid(const ui::Dimensions& dimensions, std::string emptyCell_)
     }
 
     component = ui::Renderer([this] {
+        const auto dims { ui::Dimension::Full() };
+        if (static_cast<unsigned int>(dims.dimy) != this->getRows() ||
+            static_cast<unsigned int>(dims.dimx) != this->getCols())
+        {
+            this->resize(dims);
+        }
+
         ui::Elements rows_elems {};
         for (unsigned int row_i { 0 }; row_i < this->rows; row_i++) {
             ui::Elements row_elems {};
@@ -32,8 +39,20 @@ void Grid::set(unsigned int row, unsigned int col, const std::string& string) {
     grid[row][col] = string;
 }
 
+unsigned int Grid::getRows() const {
+    return this->rows;
+}
+
+unsigned int Grid::getCols() const {
+    return this->cols;
+}
+
 const ui::Component& Grid::getComponent() const {
     return this->component;
+}
+
+void Grid::resize(const ui::Dimensions& /*dimensions*/) {
+    // TODO set new dimensions, resize grid, center grid
 }
 
 void Grid::update() {

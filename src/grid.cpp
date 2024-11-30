@@ -7,7 +7,7 @@ Grid::Grid(const ui::Dimensions& dimensions, std::string emptyCell_)
       emptyCell { emptyCell_ }
 {
     this->grid = std::vector(this->rows, std::vector<std::string>(this->cols));
-    for (auto& row : grid) {
+    for (auto& row : this->grid) {
         std::fill(row.begin(), row.end(), this->emptyCell);
     }
 
@@ -32,11 +32,11 @@ Grid::Grid(const ui::Dimensions& dimensions, std::string emptyCell_)
 }
 
 const std::string& Grid::get(unsigned int row, unsigned int col) const {
-    return grid[row][col];
+    return this->grid[row][col];
 }
 
 void Grid::set(unsigned int row, unsigned int col, const std::string& string) {
-    grid[row][col] = string;
+    this->grid[row][col] = string;
 }
 
 unsigned int Grid::getRows() const {

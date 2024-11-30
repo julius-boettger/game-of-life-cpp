@@ -11,8 +11,8 @@ Grid::Grid(const ui::Dimensions& dimensions, std::string emptyCell_)
         std::fill(row.begin(), row.end(), this->emptyCell);
     }
 
-    component = ui::Renderer([this] {
-        const auto dims { ui::Dimension::Full() };
+    component = ui::Renderer([&] {
+        const auto& dims { ui::Dimension::Full() };
         if (static_cast<unsigned int>(dims.dimy) != this->getRows() ||
             static_cast<unsigned int>(dims.dimx) != this->getCols())
         {

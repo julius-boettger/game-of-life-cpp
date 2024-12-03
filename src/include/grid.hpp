@@ -26,6 +26,8 @@ public:
 
     void update();
     void resize(const ui::Dimensions& dimensions);
+
+    bool isAlive(unsigned int row, unsigned int col) const noexcept;
     const ui::Component& getComponent() const;
 };
 

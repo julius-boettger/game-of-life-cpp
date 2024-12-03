@@ -55,6 +55,47 @@ void Grid::resize(const ui::Dimensions& /*dimensions*/) {
     // TODO set new dimensions, resize grid, center grid
 }
 
+bool Grid::isAlive(unsigned int row, unsigned int col) const noexcept {
+    if (std::clamp(row, 0u, this->rows - 1) != row ||
+        std::clamp(col, 0u, this->cols - 1) != col)
+    {
+        return false;
+    }
+    return this->get(row, col) != this->emptyCell;
+}
+
+#include <iostream>
+
 void Grid::update() {
-    // TODO see https://playgameoflife.com/info
+    // for every cell
+    for (auto row { 0u }; row < this->rows; row++) {
+        for (auto col { 0u }; col < this->cols; col++) {
+            const auto alive { this->isAlive(row, col) };
+            auto aliveNeighbors { 0 };
+
+            // for every neighbor
+            for (auto row_offset { -1 }; row_offset <= 1; row_offset++) {
+                for (auto col_offset { -1 }; col_offset <= 1; col_offset++) {
+                    // skip self
+                    if (row_offset == 0 && col_offset == 0) {
+                        continue;
+                    }
+
+                    if (this->isAlive(
+                        static_cast<unsigned int>(static_cast<int>(row) + row_offset),
+                        static_cast<unsigned int>(static_cast<int>(col) + col_offset)))
+                    {
+                        aliveNeighbors++;
+                    }
+                }
+            }
+
+            // kill/revive cell based on number of neighbors
+            if (alive && (aliveNeighbors <= 1 || aliveNeighbors >= 4)) {
+                this->set(row, col, this->emptyCell);
+            } else if (!alive && aliveNeighbors == 3) {
+                this->set(row, col, "█");
+            }
+        }
+    }
 }

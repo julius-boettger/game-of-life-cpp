@@ -15,6 +15,11 @@ int main() {
     });
 
     Grid grid { ui::Dimension::Full(), emptyField };
+    grid.set(1, 2, "█");
+    grid.set(2, 3, "█");
+    grid.set(3, 1, "█");
+    grid.set(3, 2, "█");
+    grid.set(3, 3, "█");
 
     std::atomic<bool> update_thread_running { true };
     std::thread update_thread { ([&] {

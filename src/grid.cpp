@@ -56,19 +56,5 @@ void Grid::resize(const ui::Dimensions& /*dimensions*/) {
 }
 
 void Grid::update() {
-    static unsigned int row { 0 };
-    static unsigned int col { 0 };
-
-    if (col >= this->cols - 1) {
-        return;
-    }
-
-    this->set(row, col, "█");
-
-    if (row >= this->rows - 1) {
-        row = 0;
-        col++;
-    } else {
-        row++;
-    }
+    // TODO see https://playgameoflife.com/info
 }

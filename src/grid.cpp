@@ -64,8 +64,6 @@ bool Grid::isAlive(unsigned int row, unsigned int col) const noexcept {
     return this->get(row, col) != this->emptyCell;
 }
 
-#include <iostream>
-
 void Grid::update() {
     // for every cell
     for (auto row { 0u }; row < this->rows; row++) {
